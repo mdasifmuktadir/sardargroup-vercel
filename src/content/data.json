@@ -1,0 +1,150 @@
+{
+    "general":{
+        "companyName": "Sardar Group",
+        "numberOfCustomers":"1500+",
+        "faqs":[
+            {
+                "question":"What services do you offer?",
+                "answer":"We offer a wide range of construction services including residential, commercial, and industrial projects."
+            },
+            {
+                "question":"How long have you been in business?",
+                "answer":"We have been in the construction industry for over 20 years."
+            },
+            {
+                "question":"Do you provide free estimates?",
+                "answer":"Yes, we offer free estimates for all our construction projects."
+            }
+
+        ],
+        "aboutUsImage":"/assets/images/about/about-us.jpg",
+        "aboutUsImage2":"/assets/images/about/about-us-2.jpg",
+        "contactUsImage":"/assets/images/contact/contact-us.jpg",
+        "tagLine":"Delivering end-to-end construction excellence through innovation, teamwork, and a commitment to exceeding client expectations.",
+        "tagLine2part1":"Engineering Quality Structures with ",
+        "tagLine2part2":"Expertise",
+        "tagLine3Part1":"Empowering Construction Projects with Innovation and",
+        "tagLine3Part2":" Excellence"
+    },
+    
+    
+    
+    "contact":{
+        "phone": "+1 234 567 890",
+        "email": "Lxu0g@example.com",
+        "location": "123 Main St, Anytown, USA",
+        "whatsApp": "+1 234 567 890"
+    },
+
+    "about":{
+        "header": "About Us",
+        "benefits": [
+           {
+        "icon": "mdi:account-group",
+        "title": "Experienced Team",
+        "description": "Our team has over 20 years of experience in the construction industry."
+    },
+    {
+        "icon": "mdi:check-circle",
+        "title": "Quality Workmanship",
+        "description": "We pride ourselves on delivering high-quality construction projects."
+    },
+    {
+        "icon": "mdi:emoticon-happy",
+        "title": "Customer Satisfaction",
+        "description": "Our clients' satisfaction is our top priority."
+    }
+        ],
+        "header2": "Our Mission",
+        "mission": {"missionStatement": "To provide top-notch construction services that exceed our clients' expectations.",
+        "list": [
+            "Deliver projects on time and within budget.",
+            "Maintain high safety standards on all job sites.",
+            "Foster long-term relationships with clients and partners."
+        ]
+    },
+        "vision": {
+            "visionStatement": "To be a leading construction company that sets the standard for excellence.",
+            "list": [
+                "Provide innovative solutions to meet the evolving needs of our clients.",
+                "Deliver exceptional customer service and support.",
+                "Be a global leader in the construction industry."
+            ]},
+         "progress":{
+            "revenue":82,
+            "satisfaction":90
+         },
+         "team":[
+            {
+                "name": "John Doe",
+                "position": "CEO",
+                "photo": "/teamPhotos/photo-1.jpg"
+            },
+            {
+                "name": "Jane Smith",
+                "position": "Project Manager",
+                "photo": "/teamPhotos/photo-1.jpg"
+            },
+            {
+                "name": "Mike Johnson",
+                "position": "Site Supervisor",
+                "photo": "/teamPhotos/photo-1.jpg"
+            }
+         ],
+         "callToAction":{
+            "text":"Ready to start your project with us?",
+            "buttonText":"Contact Us",
+            "buttonLink":"/contact"
+         },
+     
+         "faqs":[
+            {
+                "question":"What services do you offer?",
+                "answer":"We offer a wide range of construction services including residential, commercial, and industrial projects."
+            },
+            {
+                "question":"How long have you been in business?",
+                "answer":"We have been in the construction industry for over 20 years."
+            },
+            {
+                "question":"Do you provide free estimates?",
+                "answer":"Yes, we offer free estimates for all our construction projects."
+            }
+         ]
+    },
+
+    "footer":{
+        "awards":"18 Awards Won"
+     },
+     "hero":{
+        "preTitle":"About Us",
+        "title1":"Building the Future, Restoring the ",
+        "title2":"Past",
+        "subTitle":"Committed to Excellence in Construction"
+        
+     },
+
+     "body":{
+        "benefits":
+           [
+    {
+        "icon":"mdi:home-modern",
+        "benefitTitle":"Comprehensive Solutions",
+        "benefitDesc":"From aluminium doors and curtain walls to glass partitions and ACP cladding, we provide end-to-end solutions, saving clients time and effort by handling everything under one roof."
+    },
+    {
+        "icon":"mdi:wrench",
+        "benefitTitle":"Expert Installation & Maintenance",
+        "benefitDesc":"Our trained professionals ensure precise installation, high-quality finishes, and ongoing maintenance, guaranteeing safety, durability, and long-lasting performance."
+    },
+    {
+        "icon":"mdi:account-group",
+        "benefitTitle":"Flexible Support & Manpower Supply",
+        "benefitDesc":"We provide skilled and semi-skilled manpower tailored to project needs, helping clients manage timelines efficiently while maintaining quality standards."
+    }
+]
+        
+     }
+
+
+}

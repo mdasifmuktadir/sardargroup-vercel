@@ -1,0 +1,24 @@
+{
+    "piny.project_settings": {
+        "open-pages": [
+            "pinyfakepage.html"
+        ],
+        "component-settings": {
+            "src/pages/about.astro:::about": {
+                "route": "/about"
+            },
+            "src/pages/about.astro:::Temp": {
+                "route": "/about"
+            }
+        },
+        "app-routes": {
+            "routes": [
+                "/",
+                "/about",
+                "/blog",
+                "/rss.xml"
+            ],
+            "current_route": "/about"
+        }
+    }
+}

@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import data from "../content/data.json";
+import Footer from "../components/Footer.astro";
+
+
+---
+
+<script defer is:inline>
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log("form 1");
+      const data = Object.fromEntries(new FormData(form).entries());
+         console.log("form 2");
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (json.ok) {
+        alert('Sent — thanks!');
+        form.reset();
+      } else {
+        alert('Error: ' + (json.error || 'unknown'));
+      }
+    });
+  });
+</script>
+
+<BaseLayout >
+     <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="primary" class="site-main">
+        <div class="space-for-header"></div>
+        <!-- start: Breadcrumb Section -->
+        <section class="tj-page-header section-gap-x" data-bg-image={data.general.contactUsImage}>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="tj-page-header-content text-center">
+                  <h1 class="tj-page-title">Contact Us</h1>
+                  <div class="tj-page-link">
+                    <span><i class="tji-home"></i></span>
+                    <span>
+                      <a href="index.html">Home</a>
+                    </span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span>
+                      <span>Contact Us</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-header-overlay" data-bg-image={data.general.aboutUsImage2}></div>
+        </section>
+        <!-- end: Breadcrumb Section -->
+
+        <!-- start: Contact Top Section -->
+        <div class="tj-contact-area section-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center">
+                  <span class="sub-title wow fadeInUp" data-wow-delay=".1s"><i class="tji-box"></i>Contact info</span>
+                  <h2 class="sec-title title-anim"><span>Reach</span> Out to Us</h2>
+                </div>
+              </div>
+            </div>
+            <div class="row row-gap-4">
+              <div class="col-xl-3 col-lg-6 col-sm-6">
+                <div class="contact-item style-2 wow fadeInUp" data-wow-delay=".3s">
+                  <div class="contact-icon">
+                    <i class="tji-location-3"></i>
+                  </div>
+                  <h3 class="contact-title">Our Location</h3>
+                  <p>{data.contact.location}</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-sm-6">
+                <div class="contact-item style-2 wow fadeInUp" data-wow-delay=".5s">
+                  <div class="contact-icon">
+                    <i class="tji-envelop"></i>
+                  </div>
+                  <h3 class="contact-title">Email us</h3>
+                  <ul class="contact-list">
+                    <li><a href={"mailto:" + data.contact.email}>{data.contact.email}</a></li>
+                    <li><a href={"mailto:" + data.contact.email}>{data.contact.email}</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-sm-6">
+                <div class="contact-item style-2 wow fadeInUp" data-wow-delay=".7s">
+                  <div class="contact-icon">
+                    <i class="tji-phone"></i>
+                  </div>
+                  <h3 class="contact-title">Call us</h3>
+                  <ul class="contact-list">
+                    <li><a href={"tel:" + data.contact.phone}>{data.contact.phone}</a></li>
+                    <li><a href={"tel:" + data.contact.phone}>{data.contact.phone}</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-sm-6">
+                <div class="contact-item style-2 wow fadeInUp" data-wow-delay=".9s">
+                  <div class="contact-icon">
+                    <i class="tji-chat"></i>
+                  </div>
+                  <h3 class="contact-title">Live chat</h3>
+                  <ul class="contact-list">
+                    <li><a href={"https://wa.me/" + data.contact.whatsApp}>{data.contact.whatsApp}</a></li>
+                    <li class="active"><a href="contact.html">Need help?</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end: Contact Top Section -->
+
+        <!-- start: Contact Section -->
+        <section class="tj-contact-section-2 section-bottom-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="contact-form wow fadeInUp" data-wow-delay=".1s">
+                  <h3 class="title">Feel Free to Get in Touch or Visit our Location.</h3>
+                  <form id="contact-form" >
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="text" name="Name" placeholder="Name">
+                          <!-- <label class="cf-label">Full Name <span>*</span></label> -->
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="email" name="Email" placeholder="Email">
+                          <!-- <label class="cf-label">Email Address <span>*</span></label> -->
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="tel" name="Phone" placeholder="Phone">
+                         
+                        </div>
+                      </div>
+                      <!-- <div class="col-sm-6">
+                        <div class="form-input">
+                          <div class="tj-nice-select-box">
+                            <div class="tj-select">
+                              <select name="cfSubject">
+                                <option value="0">Chose a option</option>
+                                <option value="1">Aluminium doors, windows, and curtain walls</option>
+                                <option value="2">Structural glazing and skylight systems</option>
+                                <option value="3">Glass partitions and shower enclosures</option>
+                                <option value="4">Aluminium composite panel (ACP) cladding</option>
+                                <option value="5">Handrails, balustrades, and shopfronts</option>
+                                <option value="6">Supply and installation of all glass & aluminium accessories</option>
+                                <option value="7">Manpower Suppply Service</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="col-sm-12">
+                        <div class="form-input message-input">
+                          <textarea name="Message" id="message" placeholder="message"></textarea>
+                        
+                        </div>
+                      </div>
+                      <div class="submit-btn">
+                        <button class="tj-primary-btn" type="submit">
+                          <span class="btn-text"><span>Submit Now</span></span>
+                          <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="map-area wow fadeInUp" data-wow-delay=".3s">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d316440.5712687838!2d-74.01091796224334!3d40.67186885683901!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1745918398047!5m2!1sen!2sbd"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Contact Section -->
+
+        <!-- start: Cta Section -->
+        <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area">
+                  <div class="cta-content">
+                    <h2 class="title title-anim">Let’s Build Future Together.</h2>
+                    <div class="cta-btn wow fadeInUp" data-wow-delay=".6s">
+                      <a class="tj-primary-btn btn-dark" href="contact.html">
+                        <span class="btn-text"><span>Get Started Now</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="cta-img">
+                    <img src="assets/images/cta/cta-bg.webp" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Cta Section -->
+      </main>
+
+      <!-- start: Footer Section -->
+     <Footer/>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+</BaseLayout>
