@@ -2,58 +2,41 @@
 import 'dotenv/config';
 export const prerender = false;
 import type { APIRoute } from 'astro';
-import crypto from 'crypto';
-
-const APPSCRIPT_URL = process.env.APPSCRIPT_URL!;
-// const SECRET = process.env.API_SECRET!;
-
-
-console.log(process.env.API_SECRET)
-
-// function hmacHex(secret: string, data: string) {
-//   return crypto.createHmac('sha256', secret).update(data).digest('hex');
-// }
+import nodemailer from 'nodemailer';
 
 export const POST: APIRoute = async ({ request }) => {
   console.log("POST /api/submit called");
 
   try {
-    const payload = await request.json();
+    const { Name, Email, Phone, Message } = await request.json();
 
-    if (!payload.Name || !payload.Email || !payload.Message || !payload.Phone) {
+    if (!Name || !Email || !Phone || !Message) {
       return new Response(
         JSON.stringify({ ok: false, error: 'missing fields' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const payloadString = JSON.stringify(payload);
-  
-
-    
-
-    const resp = await fetch(APPSCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: payloadString,
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.email,
+        pass: process.env.password,
+      },
     });
 
-    // Try to parse the response safely
-    let result: any;
-    try {
-      result = await resp.json();
-    } catch {
-      // If Apps Script returns non-JSON, wrap it safely
-      const text = await resp.text();
-      result = { ok: resp.ok, message: text };
-    }
+    const formattedMessage = `New Contact Form Submission:\n\nName: ${Name}\nEmail: ${Email}\nPhone: ${Phone}\n\nMessage:\n${Message}`;
+
+    await transporter.sendMail({
+      from: 'mdgolammuktadirasif@gmail.com',
+      to: 'faruk1978y@yahoo.com',
+      subject: 'New Contact Form Submission',
+      text: formattedMessage,
+    });
 
     return new Response(
-      JSON.stringify(result),
-      {
-        status: resp.status,
-        headers: { 'Content-Type': 'application/json' },
-      }
+      JSON.stringify({ ok: true, message: 'Email sent successfully' }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (err: any) {
     console.error("API error:", err);

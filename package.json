@@ -16,9 +16,11 @@
     "astro": "^5.14.4",
     "astro-icon": "^1.1.5",
     "dotenv": "^17.2.3",
+    "nodemailer": "^7.0.10",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@astrojs/netlify": "^6.5.13"
+    "@astrojs/netlify": "^6.5.13",
+    "@types/nodemailer": "^7.0.3"
   }
 }

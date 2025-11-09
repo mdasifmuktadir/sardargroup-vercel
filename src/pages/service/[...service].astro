@@ -63,7 +63,7 @@ console.log(service);
                 <div class="post-details-wrapper">
                   <div class="blog-images wow fadeInUp" data-wow-delay=".1s">
                               {service.data.mainImage && (
-  <Image src={service.data.mainImage} alt="" />
+  <Image src={service.data.mainImage} alt="" height="400" width="800" />
 )}
                   </div>
                   <h2 class="title title-anim">{service.data.title}</h2>
@@ -83,14 +83,14 @@ console.log(service);
                         <div class="col-sm-6">
                           <div class="image-box wow fadeInUp" data-wow-delay=".3s">
                              {service.data.image1 && (
-  <Image src={service.data.image1} alt="" />
+  <Image src={service.data.image1} alt="" width="400" height="400" />
 )}
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="image-box wow fadeInUp" data-wow-delay=".5s">
                                                         {service.data.image2 && (
-  <Image src={service.data.image2} alt="" />
+  <Image src={service.data.image2} alt="" width="400" height="400" />
 )}
                           </div>
                         </div>
@@ -193,7 +193,7 @@ console.log(service);
                   </div>
                   <div class="cta-img">
                                                {service.data.image3 && (
-  <Image src={service.data.image3} alt="" />
+  <Image src={service.data.image3} alt="" height="250" width="250 " />
 )}
                   </div>
                 </div>

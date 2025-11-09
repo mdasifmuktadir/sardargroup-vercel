@@ -1,6 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import data from '../content/data.json' 
+import Image from "astro/components/Image.astro";
+import Logo from '../../public/assets/images/logos/logo.png'
+import Pattern2 from '../../public/assets/images/shape/pattern-2.svg';
+import Pattern3 from '../../public/assets/images/shape/pattern-3.svg';
 
 
 
@@ -21,8 +25,8 @@ const services = await getCollection("services");
               <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="footer-widget wow fadeInUp" data-wow-delay=".1s">
                   <div class="footer-logo">
-                    <a href="index.html">
-                      <img src="/assets/images/logos/logo.png" alt="Logos">
+                    <a href="/">
+                      <Image src={Logo} alt="Logos"  width="170" />
                     </a>
                   </div>
                   <div class="footer-text">
@@ -62,7 +66,7 @@ const services = await getCollection("services");
                   </ul>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-5 col-md-6">
+              <!-- <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="footer-widget widget-subscribe wow fadeInUp" data-wow-delay=".7s">
                   <h3 class="title">Subscribe to Our Newsletter.</h3>
                   <div class="subscribe-form">
@@ -74,7 +78,7 @@ const services = await getCollection("services");
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -124,9 +128,9 @@ const services = await getCollection("services");
           </div>
         </div>
         <div class="bg-shape-1">
-          <img src="/assets/images/shape/pattern-2.svg" alt="">
+          <Image src={Pattern2} alt="">
         </div>
         <div class="bg-shape-2">
-          <img src="/assets/images/shape/pattern-3.svg" alt="">
+          <Image src={Pattern3} alt="">
         </div>
       </footer>

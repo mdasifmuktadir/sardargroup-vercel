@@ -1,7 +1,7 @@
 {
     "general":{
         "companyName": "Sardar Group",
-        "numberOfCustomers":"1500+",
+        "numberOfCustomers":"12+",
         "faqs":[
             {
                 "question":"What services do you offer?",
@@ -30,10 +30,10 @@
     
     
     "contact":{
-        "phone": "+1 234 567 890",
-        "email": "Lxu0g@example.com",
-        "location": "123 Main St, Anytown, USA",
-        "whatsApp": "+1 234 567 890"
+        "phone": "971527547999",
+        "email": "faruk1978y@yahoo.com",
+        "location": "Al Marar 196, Flat No 209, Dubai",
+        "whatsApp": "971527547999"
     },
 
     "about":{
