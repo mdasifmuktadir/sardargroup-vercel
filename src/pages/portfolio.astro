@@ -53,7 +53,7 @@ const projects = await getCollection('projects');
                   <div class="project-content">
                     <span class="categories w-full"><a href={"/project/"+project.id}>{project.data.name}</a></span>
                     <div class="project-text">
-                      <h4 class="title"><a href={"/project/"+project.id}>{project.data.longName}</a></h4>
+                      <h4 class="title"><a style="font-size:medium" href={"/project/"+project.id}>{project.data.longName}</a></h4>
                       <a class="project-btn" href={"/project/"+project.id}>
                         <i class="tji-arrow-right-big"></i>
                       </a>
