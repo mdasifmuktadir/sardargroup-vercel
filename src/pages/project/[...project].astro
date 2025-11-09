@@ -49,7 +49,7 @@ const { Content } = await render(project);
               </div>
             </div>
           </div>
-          <div class="page-header-overlay" data-bg-image="assets/images/shape/pheader-overlay.webp"></div>
+          <div class="page-header-overlay" data-bg-image={project.data.heroImage?.src}></div>
         </section>
         <!-- end: Breadcrumb Section -->
 
@@ -59,71 +59,22 @@ const { Content } = await render(project);
             <div class="row row-gap-5">
               <div class="col-lg-8">
                 <div class="post-details-wrapper">
-                  <div class="blog-images wow fadeInUp" data-wow-delay=".1s">
-                    <img src="assets/images/project/project-details.webp" alt="Images">
-                  </div>
-                  <h2 class="title title-anim">{project.data.descriptionHeader}</h2>
+                
+               
                   <div class="blog-text">
-                    <p class="wow fadeInUp" data-wow-delay=".3s">{project.data.description}</p>
+               
                   
-                    <h3 class="wow fadeInUp" data-wow-delay=".3s">{project.data.overviewHeader}</h3>
-                    <p class="wow fadeInUp" data-wow-delay=".3s">{project.data.overview}</p>
-                    <ul class="wow fadeInUp" data-wow-delay=".3s">
-                      {project.data.overviewFeatures && project.data.overviewFeatures.map((feature) => (
-                        <li><span><i class="tji-check"></i></span>{feature}</li>
-                      ))}
-                
-                
-                    </ul>
-                    <h3 class="wow fadeInUp" data-wow-delay=".3s">{project.data.galleryHeader}</h3>
-                    <p class="wow fadeInUp" data-wow-delay=".3s">{project.data.galleryDescription}</p>
-                    <div class="images-wrap">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="image-box wow fadeInUp" data-wow-delay=".3s">
-                            <a class="gallery" data-gall="gallery"
-                              href="assets/images/project/project-gallery-1.webp"><img
-                                src="assets/images/project/project-gallery-1.webp" alt="Image"></a>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="image-box wow fadeInUp" data-wow-delay=".3s">
-                            <a class="gallery" data-gall="gallery"
-                              href="assets/images/project/project-gallery-2.webp"><img
-                                src="assets/images/project/project-gallery-2.webp" alt="Image"></a>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="image-box wow fadeInUp" data-wow-delay=".5s">
-                            <a class="gallery" data-gall="gallery"
-                              href="assets/images/project/project-gallery-3.webp"><img
-                                src="assets/images/project/project-gallery-3.webp" alt="Image"></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                 
+                 
+                 
+               
+              
                   </div>
-                  <div class="tj-post__navigation mb-0 wow fadeInUp" data-wow-delay=".3s">
-                    <!-- previous post -->
-                    <div class="tj-nav__post previous">
-                      <div class="tj-nav-post__nav prev_post">
-                        <a href="portfolio-details.html"><span><i class="tji-arrow-left"></i></span>Previous</a>
-                      </div>
-                    </div>
-                    <div class="tj-nav-post__grid">
-                      <a href="portfolio.html"><i class="tji-window"></i></a>
-                    </div>
-                    <!-- next post -->
-                    <div class="tj-nav__post next">
-                      <div class="tj-nav-post__nav next_post">
-                        <a href="portfolio-details.html">Next<span><i class="tji-arrow-right"></i></span></a>
-                      </div>
-                    </div>
-                  </div>
+           
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="tj-main-sidebar slidebar-stickiy">
+              <div class="col-lg-12">
+                <div class="">
                   <div class="tj-sidebar-widget widget-categories wow fadeInUp" data-wow-delay=".1s">
                     <h4 class="widget-title">Project Info</h4>
                     <div class="infos-item">
@@ -135,15 +86,7 @@ const { Content } = await render(project);
                         <h6 class="title">{project.data.client}</h6>
                       </div>
                     </div>
-                    <div class="infos-item">
-                      <div class="project-icons">
-                        <i class="tji-budget"></i>
-                      </div>
-                      <div class="project-text">
-                        <span>Budget</span>
-                        <h6 class="title">{project.data.budget}</h6>
-                      </div>
-                    </div>
+              
                     <div class="infos-item">
                       <div class="project-icons">
                         <i class="tji-location-2"></i>
@@ -153,15 +96,7 @@ const { Content } = await render(project);
                         <h6 class="title">{project.data.location}</h6>
                       </div>
                     </div>
-                    <div class="infos-item">
-                      <div class="project-icons">
-                        <i class="tji-chart"></i>
-                      </div>
-                      <div class="project-text">
-                        <span>Sector</span>
-                        <h6 class="title">{project.data.sector}</h6>
-                      </div>
-                    </div>
+                
                     <div class="infos-item">
                       <div class="project-icons">
                         <i class="tji-calendar"></i>

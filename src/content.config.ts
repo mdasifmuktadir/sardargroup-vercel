@@ -79,22 +79,8 @@ const projects = defineCollection({
 			name: z.string(),
 			longName: z.string(),
 			heroImage: image().optional(),
-			image1: image().optional(),
-			descriptionHeader: z.string(),			
-			description: z.string(),
-			overviewHeader: z.string(),
-			overview: z.string(),
-		
-			galleryHeader: z.string(),
-			galleryDescription: z.string(),
-			overviewFeatures: z.array(z.string()).optional(),
-			galleryImageMain: image().optional(),
-			galleryImage2: image().optional(),
-			galleryImage3: image().optional(),
 			client: z.string(),
-			budget: z.string(),
 			location: z.string(),
-			sector: z.string(),
 			date: z.string(),
 			// Transform string to Date object
 
@@ -116,6 +102,19 @@ const reviews = defineCollection({
 			
 		}),
 });
+
+
+
+const members = defineCollection({
+	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	loader: glob({ base: './src/content/members', pattern: '**/*.{md,mdx}' }),	
+    schema: ({ image }) =>
+		z.object({
+			Name: z.string(),
+			Designation: z.string(),
+			Photo: image().optional(), 
+		})
+})
 
 export const collections = { blog:blog, services:services, projects:projects, businesses:businesses, reviews:reviews };
 

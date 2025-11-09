@@ -7,6 +7,7 @@ import { Icon } from 'astro-icon/components';
 
 
 const reviews = await getCollection("reviews");
+const businsesses = await getCollection('businesses');
 
 ---
 
@@ -176,47 +177,32 @@ const reviews = await getCollection("reviews");
         <!-- end: About Section -->
 
         <!-- start: Client Section -->
-        <section class="tj-client-section client-section-gap-2 wow fadeInUp" data-wow-delay=".4s">
+           <section class="tj-client-section client-section-gap wow fadeInUp" data-wow-delay=".4s">
           <div class="container-fluid client-container">
             <div class="row">
               <div class="col-12">
                 <div class="client-content">
-                  <h5 class="sec-title">Join Over <span class="client-numbers">1000+</span> Companies with
-                    <span class="client-text">Bexon</span> Here
+                  <h5 class="sec-title">Join Over <span class="client-numbers">{data.general.numberOfCustomers}</span> Companies with
+                    <span class="client-text">{data.general.companyName}</span> Here
                   </h5>
                 </div>
                 <div class="swiper client-slider client-slider-1">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-1.webp" alt="">
+                  <div class="swiper-wrapper flex flex-row space-x-2">
+             {   businsesses.map((business) => (
+
+                  <div class="swiper-slide  client-item">
+                      <div class=" p-2 bg-white">
+                      <h5>{business.data.name}</h5>
+                      <h6>{business.data.location}</h6>
                       </div>
                     </div>
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-2.webp" alt="">
-                      </div>
-                    </div>
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-3.webp" alt="">
-                      </div>
-                    </div>
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-4.webp" alt="">
-                      </div>
-                    </div>
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-5.webp" alt="">
-                      </div>
-                    </div>
-                    <div class="swiper-slide client-item">
-                      <div class="client-logo">
-                        <img src="assets/images/brands/brand-6.webp" alt="">
-                      </div>
-                    </div>
+                ))
+                }
+                    
+                    
+                    
+                
+                    
                   </div>
                 </div>
               </div>
@@ -226,7 +212,7 @@ const reviews = await getCollection("reviews");
         <!-- end: Client Section -->
 
         <!-- start: Testimonial Section -->
-        <section class="tj-testimonial-section-2 section-bottom-gap">
+        <!-- <section class="tj-testimonial-section-2 section-bottom-gap">
           <div class="container">
             <div class="row row-gap-3">
               <div class="col-lg-6 order-lg-2">
@@ -290,7 +276,7 @@ const reviews = await getCollection("reviews");
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
         <!-- end: Testimonial Section -->
 
         <!-- start: Team Section -->

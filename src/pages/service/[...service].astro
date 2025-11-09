@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Services from '../../components/Services.astro'; 
 import Footer from '../../components/Footer.astro';
+import Image from 'astro/components/Image.astro';
 
 
 export async function getStaticPaths() {
@@ -61,7 +62,9 @@ console.log(service);
               <div class="col-lg-8">
                 <div class="post-details-wrapper">
                   <div class="blog-images wow fadeInUp" data-wow-delay=".1s">
-                    <img src={service.data.mainImage?.src} alt="Images">
+                              {service.data.mainImage && (
+  <Image src={service.data.mainImage} alt="" />
+)}
                   </div>
                   <h2 class="title title-anim">{service.data.title}</h2>
                   <div class="blog-text">
@@ -79,12 +82,16 @@ console.log(service);
                       <div class="row">
                         <div class="col-sm-6">
                           <div class="image-box wow fadeInUp" data-wow-delay=".3s">
-                            <img src={service.data.image1?.src} alt="Image">
+                             {service.data.image1 && (
+  <Image src={service.data.image1} alt="" />
+)}
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="image-box wow fadeInUp" data-wow-delay=".5s">
-                            <img src={service.data.image2?.src} alt="Image">
+                                                        {service.data.image2 && (
+  <Image src={service.data.image2} alt="" />
+)}
                           </div>
                         </div>
                       </div>
@@ -185,7 +192,9 @@ console.log(service);
                     </div>
                   </div>
                   <div class="cta-img">
-                    <img src={service.data.image3?.src} alt="">
+                                               {service.data.image3 && (
+  <Image src={service.data.image3} alt="" />
+)}
                   </div>
                 </div>
               </div>
