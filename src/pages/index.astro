@@ -26,6 +26,32 @@ const projects = await getCollection('projects');
 
 ---
 
+<script defer is:inline>
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log("form 1");
+      const data = Object.fromEntries(new FormData(form).entries());
+         console.log("form 2");
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (json.ok) {
+        alert('Sent — thanks!');
+        form.reset();
+      } else {
+        alert('Error: ' + (json.error || 'unknown'));
+      }
+    });
+  });
+</script>
+
 
 
 <BaseLayout>
@@ -299,11 +325,11 @@ const projects = await getCollection('projects');
         <!-- end: Project Section -->
 
         <!-- start: Countup Section -->
-        <div class="tj-countup-section">
+        <div class="tj-countup-section flex flex-row items-center justify-center">
           <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="countup-wrap">
+            <div class="row ">
+              <div class="col-12" >
+                <div class="countup-wrap" style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
                   <div class="countup-item">
                     <div class="inline-content">
                       <span class="odometer countup-number" data-count="93"></span>
@@ -312,14 +338,14 @@ const projects = await getCollection('projects');
                     <span class="count-text">Projects Completed.</span>
                     <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
                   </div>
-                  <div class="countup-item">
+                  <!-- <div class="countup-item">
                     <div class="inline-content">
                       <span class="odometer countup-number" data-count="20"></span>
                       <span class="count-plus">M</span>
                     </div>
                     <span class="count-text">Reach Worldwide</span>
                     <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
-                  </div>
+                  </div> -->
                   <div class="countup-item">
                     <div class="inline-content">
                       <span class="odometer countup-number" data-count="8.5"></span>
@@ -328,13 +354,13 @@ const projects = await getCollection('projects');
                     <span class="count-text">Faster Growth</span>
                     <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
                   </div>
-                  <div class="countup-item">
+                  <!-- <div class="countup-item">
                     <div class="inline-content">
                       <span class="odometer countup-number" data-count="100"></span>
                       <span class="count-plus">+</span>
                     </div>
                     <span class="count-text">Awards Archived</span>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -410,30 +436,9 @@ const projects = await getCollection('projects');
                 <div class="global-map wow fadeInUp" data-wow-delay=".3s">
                   <div class="global-map-img">
                     <Image src={MapImg} alt="Image">
-                    <div class="location-indicator loc-1">
-                      <div class="location-tooltip">
-                        <span>Head office:</span>
-                        <p>993 Renner Burg, West Rond, MT 94251-030, USA.</p>
-                        <a href="tel:10095447818">P: +1 (009) 544-7818</a>
-                        <a href="mailto:support@bexon.com">M: support@bexon.com</a>
-                      </div>
-                    </div>
-                    <div class="location-indicator loc-2">
-                      <div class="location-tooltip">
-                        <span>Regional office:</span>
-                        <p>Hessisch Lichtenau 37235, Kassel, Germany.</p>
-                        <a href="tel:10098801810">P: +1 (009) 880-1810</a>
-                        <a href="mailto:support@bexon.com">M: support@bexon.com</a>
-                      </div>
-                    </div>
-                    <div class="location-indicator loc-3">
-                      <div class="location-tooltip">
-                        <span>Regional office:</span>
-                        <p>32 Altamira, State of Pará, Brazil.</p>
-                        <a href="tel:10095447818">P: +1 (009) 544-7818</a>
-                        <a href="mailto:support@bexon.com">M: support@bexon.com</a>
-                      </div>
-                    </div>
+              
+                 
+                  
                   </div>
                 </div>
               </div>
@@ -447,20 +452,20 @@ const projects = await getCollection('projects');
                     <div class="row wow fadeInUp" data-wow-delay=".5s">
                       <div class="col-sm-6">
                         <div class="form-input">
-                          <input type="text" name="cfName2" placeholder="Full Name *">
+                          <input type="text" name="Name" placeholder="Full Name *">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-input">
-                          <input type="email" name="cfEmail2" placeholder="Email Address *">
+                          <input type="email" name="Email" placeholder="Email Address *">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-input">
-                          <input type="tel" name="cfPhone2" placeholder="Phone number *">
+                          <input type="tel" name="Phone" placeholder="Phone number *">
                         </div>
                       </div>
-                      <div class="col-sm-6">
+                      <!-- <div class="col-sm-6">
                         <div class="form-input">
                           <div class="tj-nice-select-box">
                             <div class="tj-select">
@@ -476,10 +481,10 @@ const projects = await getCollection('projects');
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-sm-12">
                         <div class="form-input message-input">
-                          <textarea name="cfMessage2" id="message" placeholder="Type message *"></textarea>
+                          <textarea name="Message" id="message" placeholder="Type message *"></textarea>
                         </div>
                       </div>
                       <div class="submit-btn">

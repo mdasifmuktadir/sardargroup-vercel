@@ -11,6 +11,6 @@ import icon from 'astro-icon';
 export default defineConfig({
     site: 'https://example.com',
     integrations: [mdx(), sitemap(), icon()],
-    output: 'static',
-    adapter: netlify(),
+    output: 'server',
+    adapter: netlify({cacheOnDemandPages: true,}),
 });

@@ -6,20 +6,30 @@ import Footer from '../../components/Footer.astro';
 import Image from 'astro/components/Image.astro';
 
 
-export async function getStaticPaths() {
-	const services = await getCollection('services');
-	return services.map((service: { id: any; }) => ({
-		params: { service: service.id },
-		props: service,
-	}));
+// export async function getStaticPaths() {
+// 	const services = await getCollection('services');
+// 	return services.map((service: { id: any; }) => ({
+// 		params: { service: service.id },
+// 		props: service,
+// 	}));
+// }
+
+const services = await getCollection('services');
+var id = Astro.params.id;
+
+
+
+var service = services.find((serv) => serv.id === id);
+
+if (!service) {
+  return new Response('Service not found', { status: 404 });
 }
-type Props = CollectionEntry<'services'>;
 
 
-const service = Astro.props;
-const { Content } = await render(service);
+// const service = Astro.props;
+// const { Content } = await render(service);
 
-console.log(service);
+
 
 
 
@@ -193,7 +203,7 @@ console.log(service);
                   </div>
                   <div class="cta-img">
                                                {service.data.image3 && (
-  <Image src={service.data.image3} alt="" height="250" width="250 " />
+  <Image src={service.data.image3} alt="" height="100" width="100 " />
 )}
                   </div>
                 </div>

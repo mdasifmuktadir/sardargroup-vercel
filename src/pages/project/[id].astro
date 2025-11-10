@@ -3,20 +3,34 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Projects from '../../components/Projects.astro'; 
 import { Image } from 'astro:assets';
+import CTABG from '../../../public/assets/images/cta/cta-bg.webp'
+import Footer from '../../components/Footer.astro';
+export const prerender = false;
 
 
-export async function getStaticPaths() {
-	const projects = await getCollection('projects');
-	return projects.map((project:any) => ({
-		params: { project: project.id },
-		props: project,
-	}));
-}
+
+// export async function getStaticPaths() {
+// 	const projects = await getCollection('projects');
+// 	return projects.map((project:any) => ({
+// 		params: { project: project.id },
+// 		props: project,
+// 	}));
+// }
+
+
+const projects = await getCollection('projects');
+var id = Astro.params.id;
 type Props = CollectionEntry<'projects'>;
+var project = projects.find((proj) => proj.id === id);
+
+if (!project) {
+  return new Response('Project not found', { status: 404 });
+}
 
 
-const project = Astro.props;
-const { Content } = await render(project);
+
+// const project = Astro.props;
+// const { Content } = await render(project);
 
 
 
@@ -108,7 +122,7 @@ const { Content } = await render(project);
                     </div>
 
                   </div>
-                  <div class="tj-sidebar-widget widget-feature-item wow fadeInUp" data-wow-delay=".3s">
+                  <!-- <div class="tj-sidebar-widget widget-feature-item wow fadeInUp" data-wow-delay=".3s">
                     <div class="feature-box">
                       <div class="feature-content">
                         <h2 class="title">Modern</h2>
@@ -122,7 +136,7 @@ const { Content } = await render(project);
                         <img src="assets/images/service/service-ad.webp" alt="">
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -139,14 +153,14 @@ const { Content } = await render(project);
                   <div class="cta-content">
                     <h2 class="title title-anim">Let’s Build Future Together.</h2>
                     <div class="cta-btn wow fadeInUp" data-wow-delay=".6s">
-                      <a class="tj-primary-btn btn-dark" href="contact.html">
+                      <a class="tj-primary-btn btn-dark" href="/contact">
                         <span class="btn-text"><span>Get Started Now</span></span>
                         <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                       </a>
                     </div>
                   </div>
                   <div class="cta-img">
-                    <img src="assets/images/cta/cta-bg.webp" alt="">
+                    <Image src={CTABG} alt="">
                   </div>
                 </div>
               </div>
@@ -157,7 +171,7 @@ const { Content } = await render(project);
       </main>
 
       <!-- start: Footer Section -->
-      <footer class="tj-footer-section footer-1 section-gap-x">
+      <!-- <footer class="tj-footer-section footer-1 section-gap-x">
         <div class="footer-main-area">
           <div class="container">
             <div class="row justify-content-between">
@@ -275,7 +289,8 @@ const { Content } = await render(project);
         <div class="bg-shape-2">
           <img src="assets/images/shape/pattern-3.svg" alt="">
         </div>
-      </footer>
+      </footer> -->
+      <Footer/>
       <!-- end: Footer Section -->
     </div>
   </div>

@@ -3,6 +3,9 @@
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import data from '../content/data.json';
+import Image from 'astro/components/Image.astro';
+
+import Logo from  "../../public/assets/images/logos/logo.png"      
 
 const services = await getCollection('services');
 
@@ -78,7 +81,7 @@ const businsesses = await getCollection('businesses');
         <div class="hamburger_top d-flex align-items-center justify-content-between">
           <div class="hamburger_logo">
             <a href="/index" class="mobile_logo">
-              <img src="/assets/images/logos/logo.png" alt="Logo">
+              <Image src={Logo} alt="Logo">
             </a>
           </div>
           <div class="hamburger_close">
@@ -141,7 +144,7 @@ const businsesses = await getCollection('businesses');
         <div class="hamburger_top d-flex align-items-center justify-content-between">
           <div class="hamburger_logo">
             <a href="/index" class="mobile_logo">
-              <img src="/assets/images/logos/logo.png" alt="Logo">
+              <Image src={Logo} alt="Logo">
             </a>
           </div>
           <div class="hamburger_close">
@@ -195,7 +198,7 @@ const businsesses = await getCollection('businesses');
           <div class="header-wrapper">
             <!-- site logo -->
             <div class=" flex flex-row">
-              <a class="logo" href="/"><img src="/assets/images/logos/logo.png" style="height:9vh" alt=""></a>
+              <a class="logo" href="/"><Image src={Logo} height="100" alt=""></a>
               <span style="font-weight: bold;">{data.general.companyName}</span>
             </div>
 
@@ -304,7 +307,7 @@ const businsesses = await getCollection('businesses');
           <div class="header-wrapper">
             <!-- site logo -->
             <div class=" flex flex-row">
-              <a class="logo" href="/"><img src="/assets/images/logos/logo.png" style="height:9vh" alt=""></a>
+              <a class="logo" href="/"><Image src={Logo} height="90" alt=""></a>
               <span style="font-weight: bold;">{data.general.companyName}</span>
             </div>
 
