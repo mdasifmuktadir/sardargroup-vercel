@@ -81,7 +81,7 @@ const businsesses = await getCollection('businesses');
         <div class="hamburger_top d-flex align-items-center justify-content-between">
           <div class="hamburger_logo">
             <a href="/index" class="mobile_logo">
-              <Image src={Logo} alt="Logo">
+              <Image src={Logo} alt="Logo" height="80" width="80">
             </a>
           </div>
           <div class="hamburger_close">
@@ -105,11 +105,11 @@ const businsesses = await getCollection('businesses');
           <div class="contact-info">
             <div class="contact-item">
               <span class="subtitle">Phone</span>
-              <a class="contact-link" href="tel:10095447818">{data.contact.phone}</a>
+              <a class="contact-link" href={`tell:${data.contact.phone}`}>{data.contact.phone}</a>
             </div>
             <div class="contact-item">
               <span class="subtitle">Email</span>
-              <a class="contact-link" href="mailto:info@bexon.com">{data.contact.email}</a>
+              <a class="contact-link" href={`mailto:${data.contact.email}`}>{data.contact.email}</a>
             </div>
             <div class="contact-item">
               <span class="subtitle">Location</span>
@@ -159,15 +159,15 @@ const businsesses = await getCollection('businesses');
           <div class="contact-info">
             <div class="contact-item">
               <span class="subtitle">Phone</span>
-              <a class="contact-link" href="tel:8089091313">808-909-1313</a>
+              <a class="contact-link" href={`tel:${data.contact.phone}`}>{data.contact.phone}</a>
             </div>
             <div class="contact-item">
               <span class="subtitle">Email</span>
-              <a class="contact-link" href="mailto:info@bexon.com">info@bexon.com</a>
+              <a class="contact-link" href=`mailto:${data.contact.email}`>{data.contact.email}</a>
             </div>
             <div class="contact-item">
               <span class="subtitle">Location</span>
-              <span class="contact-link">993 Renner Burg, West Rond, MT 94251-030</span>
+              <span class="contact-link">{data.contact.location}</span>
             </div>
           </div>
         </div>
@@ -197,9 +197,12 @@ const businsesses = await getCollection('businesses');
         <div class="col-12">
           <div class="header-wrapper">
             <!-- site logo -->
-            <div class=" flex flex-row">
+            <div style="display:flex; justify-content:center; align-items:center">
               <a class="logo" href="/"><Image src={Logo} height="100" alt=""></a>
-              <span style="font-weight: bold;">{data.general.companyName}</span>
+                <div style="display:flex; flex-direction: column;">
+              <div style="font-weight: bold;">{data.general.companyName}</div>
+               <div style="font-weight: thin;">{data.general.listedName}</div>
+               </div>
             </div>
 
             <!-- navigation -->
@@ -230,6 +233,7 @@ const businsesses = await getCollection('businesses');
                  
                   </li>
                   <li><a href="/contact">Contact</a></li>
+                   <li><a href="/sister-concerns">Sister Concerns</a></li>
                 </ul>
               </nav>
             </div>
@@ -306,9 +310,12 @@ const businsesses = await getCollection('businesses');
         <div class="col-12">
           <div class="header-wrapper">
             <!-- site logo -->
-            <div class=" flex flex-row">
-              <a class="logo" href="/"><Image src={Logo} height="90" alt=""></a>
-              <span style="font-weight: bold;">{data.general.companyName}</span>
+             <div style="display:flex; justify-content:center; align-items:center">
+              <a class="logo" href="/"><Image src={Logo} height="100" alt=""></a>
+                <div style="display:flex; flex-direction: column;">
+              <div style="font-weight: bold;">{data.general.companyName}</div>
+               <div style="font-weight: thin;">{data.general.listedName}</div>
+               </div>
             </div>
 
             <!-- navigation -->
@@ -343,6 +350,7 @@ const businsesses = await getCollection('businesses');
                   </li>
                 
                   <li><a href="/contact">Contact</a></li>
+                    <li><a href="/contact">Sister Concerns</a></li>
                 </ul>
               </nav>
             </div>

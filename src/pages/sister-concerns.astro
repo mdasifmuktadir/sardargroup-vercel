@@ -1,0 +1,173 @@
+---
+import { getCollection } from "astro:content";
+import Image from "astro/components/Image.astro";
+import CTGABG from "../../public/assets/images/cta/cta-bg.webp";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+
+var companies = await getCollection("businesses");
+
+---
+
+
+<BaseLayout>
+   <section class="tj-testimonial-section section-gap section-gap-x">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12">
+          <div class="sec-heading-wrap">
+            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Sister Concerns</span>
+            <div class="heading-wrap-content">
+              <div class="sec-heading">
+                <h2 class="sec-title title-anim">Same <span>Commitment</span> Different Faces.</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials grid -->
+      <div class="testimonial-wrapper" style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+        
+        <!-- Card 1 -->
+
+        {companies.map((company, index) => (
+
+                <div style="flex:1  300px; max-width: 300px;">
+          <div class="testimonial-item card-style wow fadeInUp" data-wow-delay=".5s">
+            {/* <span class="quote-icon"><i class="tji-quote"></i></span> */}
+            <div class="desc">
+              <p>{company.data.name}</p>
+            </div>
+            <div class="testimonial-author" style="">
+              <div class="author-inner">
+                {/* <div class="author-img">
+                  <img src="assets/images/testimonial/client-1.webp" alt="">
+                </div> */}
+                <div class="author-header">
+                  <h4 class="title">{company.data.location}</h4>
+                  {/* <span class="designation">Co. Founder</span> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        ))}
+
+            
+      
+    
+
+        <!-- Card 2 -->
+       
+        <!-- Card 3 -->
+       
+
+        <!-- Add more testimonial cards as needed -->
+        
+      </div>
+      <!-- End testimonial-wrapper -->
+
+    </div>
+
+    <div class="bg-shape-1">
+      <img src="assets/images/shape/pattern-2.svg" alt="">
+    </div>
+    <div class="bg-shape-2">
+      <img src="assets/images/shape/pattern-3.svg" alt="">
+    </div>
+  </section>
+
+       <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area">
+                  <div class="cta-content">
+                    <h2 class="title title-anim">Let’s Build Future Together.</h2>
+                    <div class="cta-btn wow fadeInUp" data-wow-delay=".6s">
+                      <a class="tj-primary-btn btn-dark" href="contact.html">
+                        <span class="btn-text"><span>Get Started Now</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="cta-img">
+                    <Image src={CTGABG} alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+   <Footer/>
+</BaseLayout>
+
+
+<style>
+  /* Card style for testimonials */
+  .card-style {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height:20vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    
+  }
+
+  .card-style:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  }
+
+  .testimonial-item .quote-icon {
+    font-size: 30px;
+    color: #5c3d91;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+
+  .testimonial-item .desc p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .testimonial-author {
+    margin-top: 20px;
+  }
+
+  .testimonial-author .author-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial-author .author-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+
+  .testimonial-author .author-header .title {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .testimonial-author .author-header .designation {
+    font-size: 14px;
+    color: #999;
+  }
+</style>

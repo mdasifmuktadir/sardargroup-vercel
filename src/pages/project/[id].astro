@@ -43,28 +43,31 @@ if (!project) {
       <main id="primary" class="site-main">
         <div class="space-for-header"></div>
         <!-- start: Breadcrumb Section -->
-        <section class="tj-page-header section-gap-x" data-bg-image="assets/images/bg/pheader-bg.webp">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="tj-page-header-content text-center">
-                  <h1 class="tj-page-title">{project.data.name }</h>                                                  
-                  <div class="tj-page-link">
-                    <span><i class="tji-home"></i></span>
-                    <span>
-                      <a href="index.html">Home</a>
-                    </span>
-                    <span><i class="tji-arrow-right"></i></span>                                                              
-                    <span>
-                      <span>Portfolio Details</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+     <section
+  class="tj-page-header section-gap-x"
+  style={`background-image: url('${project.data.heroImage?.src}')`}
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="tj-page-header-content text-center">
+          <h1 class="tj-page-title">{project.data.name}</h1>
+          <div class="tj-page-link">
+            <span><i class="tji-home"></i></span>
+            <span><a href="/">Home</a></span>
+            <span><i class="tji-arrow-right"></i></span>
+            <span><span>Portfolio Details</span></span>
           </div>
-          <div class="page-header-overlay" data-bg-image={project.data.heroImage?.src}></div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="page-header-overlay"
+    style={`background-image: url('${project.data.heroImage?.src}')`}
+  ></div>
+</section>
+
         <!-- end: Breadcrumb Section -->
 
         <!-- start: Blog Section -->

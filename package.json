@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@astrojs/netlify": "^6.5.13",
+    "@astrojs/vercel": "^9.0.0",
     "@types/nodemailer": "^7.0.3"
   }
 }
