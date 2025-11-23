@@ -60,11 +60,55 @@ const projects = await getCollection('projects');
     <div id="smooth-content">
       <main id="primary" class="site-main">
         <div class="space-for-header"></div>
+        <div class="top-space-15"></div>
         <!-- start: Banner Section -->
-      
-        <!-- end: Banner Section -->
-
-        <!-- start: Choose Section -->
+        <section class="h9-hero">
+          <div class="">
+            <div class="h9-hero-bg-image" style="filter:brightness(60%)" data-bg-image="assets/home_page.jpg"></div>
+            <div class="h9-hero-item-wrapper">
+              <div class="h9-hero-content">
+                <h1 class="h9-hero-title text-anim" style="color:white">Empower <span class="wow fadeInLeft" data-wow-delay="0.3s"></span>
+                  Your Business with <b style="color:#6a4caf">Sardar Group</b>
+                </h1>
+                <div class="h9-hero-desc-area">
+                  <h4 class="title wow fadeInUp" data-wow-delay="0.5s" style="color:white">Solutions That Scale.</h4>
+                  <div class="desc-inner wow fadeInUp" data-wow-delay="0.7s">
+                    <p class="desc">Recognized by the industry leaders for <a
+                        href="/portfolio">our proven records</a> of delivering excellence across projects.
+                      </p>
+                    <a class="tj-primary-btn" href="/contact">
+                      <span class="btn-text"><span>Get Started</span></span>
+                      <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="h9-hero-social wow fadeInUp" data-wow-delay="0.9s">
+                  <div class="social-links style-3">
+                    <ul>
+                      <li><a href="https://www.facebook.com/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                      </li>
+                      <li><a href="https://www.instagram.com/" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                      </li>
+                      <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                      <li><a href="https://www.linkedin.com/" target="_blank"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="h9-hero-img  img-parallax wow fadeInUp" data-wow-delay="0.9s">
+                <img src="assets/images/hero/h9-hero-img.webp" alt="">
+              </div> -->
+            </div>
+          </div>
+          <div class="h7-hero-shape h9-hero-shape-1 wow fadeInUpBig" data-wow-delay="1s"><img
+              class="tj-anim-move-var-big" src="assets/images/shape/h7-hero-blur-1.png" alt=""></div>
+          <div class="h7-hero-shape h9-hero-shape-2 wow fadeInDownBig" data-wow-delay="1.2s"><img
+              class="tj-anim-move-var-big-reverse" src="assets/images/shape/h7-hero-blur-2.png" alt=""></div>
+        </section>
         <section id="choose" class="tj-choose-section section-gap">
           <div class="container">
             <div class="row">
@@ -278,7 +322,7 @@ const projects = await getCollection('projects');
                   <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Proud Projects</span>
                   <div class="heading-wrap-content">
                     <div class="sec-heading">
-                      <h2 class="sec-title title-anim">Breaking Boundaries, Building <span>Dreams.</span></h2>
+                      <h2 class="sec-title title-anim">Breaking Boundaries, Building <span>Dreams With Sardar Group</span></h2>
                     </div>
                     <p class="desc wow fadeInUp" data-wow-delay=".5s">We work closely with our clients to understand
                       their
@@ -301,7 +345,7 @@ const projects = await getCollection('projects');
                   {projects.map((project) => (
                             <div class="project-item tj-arrange-item">
                                            {project.data.heroImage && (
-  <Image src={project.data.heroImage} alt="" />
+  <Image src={project.data.heroImage} alt="" height={700}  style="filter:brightness(70%); " />
 )}
                     <div class="project-content">
                       <span class="categories"><a href={"project/" + project.id}>{project.data.name}</a></span>

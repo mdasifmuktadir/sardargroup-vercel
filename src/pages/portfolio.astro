@@ -48,7 +48,7 @@ const projects = await getCollection('projects');
                            <div class="col-xl-4 col-md-6">
                 <div class="project-item wow fadeInUp" data-wow-delay=".1s">
                   <div class="project-img">
-                 {project.data.heroImage && <Image width={500} height={500} src={project.data.heroImage} alt="" />}
+                 {project.data.heroImage && <Image  height={200} width={200} src={project.data.heroImage} alt="" />}
                     
                   </div>
                   <div class="project-content">
@@ -122,3 +122,17 @@ const projects = await getCollection('projects');
   </div>
 
 </BaseLayout>
+  <style>
+    .project-img {
+  width: 500px;
+  height: 200px;
+  overflow: hidden;  /* important */
+  border-radius: 10px; /* optional */
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops image to fill box */
+}
+  </style>
