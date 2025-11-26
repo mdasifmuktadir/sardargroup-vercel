@@ -29,9 +29,11 @@ const services = await getCollection("services");
                       <Image src={Logo} alt="Logos"  width="170" />
                     </a>
                   </div>
-                  <div class="footer-text">
-                    <p>{data.general.tagLine}
-                    </p>
+                  <div style="display:flex; flex-direction: column; justify-content:center; align-items:flex-start; margin-top:15px;  line-height:1.4;">
+                    <div style="font-weight:bold" >{data.general.companyName}
+                    </div>
+                     <div style="margin-top:12px">{data.general.listedName}
+                     </div>
                   </div>
                   <!-- <div class="award-logo-area">
                     <div class="award-logo">

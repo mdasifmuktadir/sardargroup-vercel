@@ -144,7 +144,7 @@ const businsesses = await getCollection('businesses');
         <div class="hamburger_top d-flex align-items-center justify-content-between">
           <div class="hamburger_logo">
             <a href="/index" class="mobile_logo">
-              <Image src={Logo} alt="Logo" width={70} height={70}>
+              <Image src={Logo} alt="Logo" height={70}>
             </a>
           </div>
           <div class="hamburger_close">
@@ -198,10 +198,10 @@ const businsesses = await getCollection('businesses');
           <div class="header-wrapper">
             <!-- site logo -->
             <div style="display:flex; justify-content:center; align-items:center">
-              <a class="logo" href="/"><Image src={Logo} height="100" alt=""></a>
+              <a class="logo" href="/"><Image src={Logo} height={70} alt="" class="img2"></a>
                 <div style="display:flex; flex-direction: column;">
-              <div style="font-weight: bold;">{data.general.companyName}</div>
-               <div style="font-weight: thin;">{data.general.listedName}</div>
+              <div class="font2" style="font-weight: bold;">{data.general.companyName}</div>
+               <div class="font2" style="font-weight: thin;">{data.general.listedName}</div>
                </div>
             </div>
 
@@ -441,4 +441,49 @@ const businsesses = await getCollection('businesses');
   <script src="/assets/js/main.js" is:inline></script>
 </body>
 
+<style>
+  .img2 {
+  height: 70px;
+}
+
+ .font2{
+    font-size: 11px;
+  }
+
+  .menu_bar.mobile_menu_bar{
+     height:40px
+  }
+
+@media (min-width: 640px) {
+  .img2 {
+    height: 90px;
+  }
+
+  .font2{
+    font-size: 18px;
+  }
+
+
+   .menu_bar.mobile_menu_bar{
+    
+  }
+}
+
+@media (min-width: 1024px) {
+  .img2 {
+    height: 90px;
+    width:90px;
+  }
+
+   .font2{
+    font-size: 18px;
+  }
+
+  .menu_bar.mobile_menu_bar{
+
+  }
+}
+</style>
 </html>
+
+

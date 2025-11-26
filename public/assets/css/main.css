@@ -1589,6 +1589,7 @@ START: Theme Header CSS
   height: 25px;
   position: relative;
   top: 0;
+  right:200px;
   inset-inline-start: 0;
   -webkit-margin-start: 5px;
           margin-inline-start: 5px;
@@ -1618,6 +1619,8 @@ START: Theme Header CSS
   padding: 12px;
   background: var(--tj-color-theme-primary);
   border-radius: 7px;
+  
+ 
 }
 .menu_bar.mobile_menu_bar span {
   background-color: var(--tj-color-common-white);
@@ -3735,6 +3738,7 @@ START: Theme Search CSS
   position: fixed;
   inset-inline-end: -490px;
   top: 15px;
+ 
   width: 450px;
   height: calc(100% - 30px);
   -webkit-box-shadow: -5px 0 20px -5px rgba(0, 0, 0, 0.5);
