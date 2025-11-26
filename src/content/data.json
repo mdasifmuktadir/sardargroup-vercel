@@ -1,7 +1,8 @@
 {
     "general":{
         "companyName": "Sardar Group",
-        "listedName":"Sardar Nazmulhuda Technical & Cleaning Services L.L.C",
+        "listedName1":"Sardar Nazmulhuda Technical",
+        "listedName2":" & Cleaning Services L.L.C",
         "numberOfCustomers":"12+",
         "faqs":[
             {

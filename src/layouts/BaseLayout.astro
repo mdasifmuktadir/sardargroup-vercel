@@ -201,7 +201,11 @@ const businsesses = await getCollection('businesses');
               <a class="logo" href="/"><Image src={Logo} height={70} alt="" class="img2"></a>
                 <div style="display:flex; flex-direction: column;">
               <div class="font2" style="font-weight: bold;">{data.general.companyName}</div>
-               <div class="font2" style="font-weight: thin;">{data.general.listedName}</div>
+               <div class="font2" style="font-weight: thin; font-size:14px; line-height: 14px;">{data.general.listedName1}</div>
+                 <div class="font2" style="font-weight: thin; font-size:14px">{data.general.listedName2}</div>
+               </div>
+               <div class="font2" style-="font-weight:thin">
+
                </div>
             </div>
 
@@ -310,11 +314,15 @@ const businsesses = await getCollection('businesses');
         <div class="col-12">
           <div class="header-wrapper">
             <!-- site logo -->
-             <div style="display:flex; justify-content:center; align-items:center">
-              <a class="logo" href="/"><Image src={Logo} height="100" alt=""></a>
+               <div style="display:flex; justify-content:center; align-items:center">
+              <a class="logo" href="/"><Image src={Logo} height={70} alt="" class="img2"></a>
                 <div style="display:flex; flex-direction: column;">
-              <div style="font-weight: bold;">{data.general.companyName}</div>
-               <div style="font-weight: thin;">{data.general.listedName}</div>
+              <div class="font2" style="font-weight: bold;">{data.general.companyName}</div>
+               <div class="font2" style="font-weight: thin; font-size:14px; line-height: 14px;">{data.general.listedName1}</div>
+                 <div class="font2" style="font-weight: thin; font-size:14px">{data.general.listedName2}</div>
+               </div>
+               <div class="font2" style-="font-weight:thin">
+
                </div>
             </div>
 
