@@ -1,0 +1,140 @@
+---
+import { getCollection } from "astro:content";
+import data from '../content/data.json' 
+import Image from "astro/components/Image.astro";
+import Logo from '../../public/assets/images/logos/logo.png'
+import Pattern2 from '../../public/assets/images/shape/pattern-2.svg';
+import Pattern3 from '../../public/assets/images/shape/pattern-3.svg';
+
+
+
+const services = await getCollection("services");
+
+
+
+
+---
+     
+     
+     
+     
+     <footer class="tj-footer-section footer-1 section-gap-x">
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".1s">
+                  <div class="footer-logo">
+                    <a href="/">
+                      <Image src={Logo} alt="Logos"  width="170" />
+                    </a>
+                  </div>
+                  <div style="display:flex; flex-direction: column; justify-content:center; align-items:flex-start; margin-top:15px;  line-height:1.4;">
+                    <div style="font-weight:bold" >{data.general.companyName}
+                    </div>
+                     <div style="margin-top:12px; line-height: 8px;">{data.general.listedName1}
+                     </div>
+                       <div style="margin-top:12px; line-height: 8px;">{data.general.listedName2}
+                     </div>
+                  </div>
+                  <!-- <div class="award-logo-area">
+                    <div class="award-logo">
+                      <img src="/assets/images/footer/award-logo-1.webp" alt="">
+                    </div>
+                    <div class="award-logo">
+                      <img src="/assets/images/footer/award-logo-2.webp" alt="">
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="footer-widget widget-nav-menu wow fadeInUp" data-wow-delay=".3s">
+                  <h5 class="title">Services</h5>
+                  <ul>
+                    {services.map((service)=>(
+                      <li><a href={`/service/${service.id}`}>{service.data.title}</a></li>
+                    ))}
+               
+                    
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-4 col-md-6">
+                <div class="footer-widget widget-nav-menu wow fadeInUp" data-wow-delay=".5s">
+                  <h5 class="title">Resources</h5>
+                  <ul>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+           
+                  </ul>
+                </div>
+              </div>
+              <!-- <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="footer-widget widget-subscribe wow fadeInUp" data-wow-delay=".7s">
+                  <h3 class="title">Subscribe to Our Newsletter.</h3>
+                  <div class="subscribe-form">
+                    <form action="#">
+                      <input type="email" name="email" placeholder="Enter email">
+                      <button type="submit"><i class="tji-plane"></i></button>
+                      <label for="agree"><input id="agree" type="checkbox">Agree to our <a href="#">Terms &
+                          Condition?</a></label>
+                    </form>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="copyright-content-area">
+                  <div class="footer-contact">
+                    <ul>
+                      <li>
+                        <a href="tel:10095447818">
+                          <span class="icon"><i class="tji-phone-2"></i></span>
+                          <span class="text">{data.contact.phone}</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="mailto:info@bexon.com">
+                          <span class="icon"><i class="tji-envelop-2"></i></span>
+                          <span class="text">{data.contact.email}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="social-links">
+                    <ul>
+                      <li><a href="https://www.facebook.com/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                      </li>
+                      <li><a href="https://www.instagram.com/" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                      </li>
+                      <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                      <li><a href="https://www.linkedin.com/" target="_blank"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="copyright-text">
+                    <p>&copy; 2025 <a href="https://themeforest.net/user/theme-junction/portfolio"
+                        target="_blank">Sardar Group</a>
+                      All right reserved</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape-1">
+          <Image src={Pattern2} alt="">
+        </div>
+        <div class="bg-shape-2">
+          <Image src={Pattern3} alt="">
+        </div>
+      </footer>
