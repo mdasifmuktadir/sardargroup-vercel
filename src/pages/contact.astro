@@ -76,13 +76,16 @@ import Image from "astro/components/Image.astro";
               </div>
             </div>
             <div class="row row-gap-4">
-              <div class="col-xl-3 col-lg-6 col-sm-6">
-                <div class="contact-item style-2 wow fadeInUp" data-wow-delay=".3s">
+               <div class="col-xl-3 col-lg-6 col-sm-6">
+                <div class="location-style wow fadeInUp" data-wow-delay=".3s">
                   <div class="contact-icon">
                     <i class="tji-location-3"></i>
                   </div>
-                  <h3 class="contact-title">Our Location</h3>
-                  <p>{data.contact.location}</p>
+                  <h3 class="contact-title">Our Locations</h3>
+                  <div>
+                  <div><b>Head Office:</b>{data.contact.location}</div>
+                  <div><b>Operations Office:</b>{data.contact.operationsLocation}</div>
+                  </div>
                 </div>
               </div>
               <div class="col-xl-3 col-lg-6 col-sm-6">
@@ -219,5 +222,37 @@ import Image from "astro/components/Image.astro";
     height:30vh;
     align-items: center;
     justify-content: center;
+  }
+
+ .location-style{
+    display:flex;
+    flex-direction: column;
+    height:30vh;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5%;
+    padding:30px;
+    font-size: small;
+    line-height: 18px;
+  }
+
+
+  .location-style .contact-icon{
+    background-color:#e4e6f0;
+    border-radius: 100%;
+    padding:25px;
+  }
+
+
+  .location-style .tji-location-3{
+    color: #5c3d91;
+    font-size: 40px;
+  }
+
+  .location-style .contact-title{
+    margin-top:15px;
+    font-size: 25px;
+    font-weight: bold;
   }
 </style>
