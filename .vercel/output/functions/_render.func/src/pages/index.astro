@@ -1,0 +1,591 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import data from '../content/data.json'
+import { Icon } from 'astro-icon/components';
+import {Image} from "astro:assets"
+import Faq from "../../public/assets/images/faq/faq.webp";
+import Patter2 from "../../public/assets/images/shape/pattern-2.svg";
+import Patter3 from "../../public/assets/images/shape/pattern-3.svg";
+import CTGABG from "../../public/assets/images/cta/cta-bg.webp";
+import PatternBG from "../../public/assets/images/shape/pattern-bg.webp";
+import HeroImg from "../../public/assets/images/hero/hero-img.webp";
+import AboutUsImg from "../../public/assets/images/about/about-us.jpg";
+import AboutUs2Img from "../../public/assets/images/about/about-us-2.jpg";
+import MapImg from "../../public/assets/images/bg/map.svg";
+
+
+
+const services = await getCollection("services");
+const businsesses = await getCollection('businesses');
+const reviews = await getCollection('reviews');
+const projects = await getCollection('projects');
+
+
+
+---
+
+<script defer is:inline>
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log("form 1");
+      const data = Object.fromEntries(new FormData(form).entries());
+         console.log("form 2");
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (json.ok) {
+        alert('Sent — thanks!');
+        form.reset();
+      } else {
+        alert('Error: ' + (json.error || 'unknown'));
+      }
+    });
+  });
+</script>
+
+
+
+<BaseLayout>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="primary" class="site-main">
+        <div class="space-for-header"></div>
+        <div class="top-space-15"></div>
+        <!-- start: Banner Section -->
+        <section class="h9-hero">
+          <div class="">
+            <div class="h9-hero-bg-image" style="filter:brightness(60%)" data-bg-image="assets/home_page.jpg"></div>
+            <div class="h9-hero-item-wrapper">
+              <div class="h9-hero-content">
+                <h1 class="h9-hero-title text-anim" style="color:white">Empower <span class="wow fadeInLeft" data-wow-delay="0.3s"></span>
+                  Your Business with <b style="color:#6a4caf">Sardar Group</b>
+                </h1>
+                <div class="h9-hero-desc-area">
+                  <h4 class="title wow fadeInUp" data-wow-delay="0.5s" style="color:white">Solutions That Scale.</h4>
+                  <div class="desc-inner wow fadeInUp" data-wow-delay="0.7s">
+                    <p class="desc">Recognized by the industry leaders for <a
+                        href="/portfolio">our proven records</a> of delivering excellence across projects.
+                      </p>
+                    <a class="tj-primary-btn" href="/contact">
+                      <span class="btn-text"><span>Get Started</span></span>
+                      <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="h9-hero-social wow fadeInUp" data-wow-delay="0.9s">
+                  <div class="social-links style-3">
+                    <ul>
+                      <li><a href={data.contact.facebook} target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                      </li>
+                      <li><a href={data.contact.instagram} target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                      </li>
+                      <!-- <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                      <li><a href="https://www.linkedin.com/" target="_blank"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="h9-hero-img  img-parallax wow fadeInUp" data-wow-delay="0.9s">
+                <img src="assets/images/hero/h9-hero-img.webp" alt="">
+              </div> -->
+            </div>
+          </div>
+          <div class="h7-hero-shape h9-hero-shape-1 wow fadeInUpBig" data-wow-delay="1s"><img
+              class="tj-anim-move-var-big" src="assets/images/shape/h7-hero-blur-1.png" alt=""></div>
+          <div class="h7-hero-shape h9-hero-shape-2 wow fadeInDownBig" data-wow-delay="1.2s"><img
+              class="tj-anim-move-var-big-reverse" src="assets/images/shape/h7-hero-blur-2.png" alt=""></div>
+        </section>
+        <section id="choose" class="tj-choose-section section-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center">
+                  <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Choose the
+                    Best</span>
+                        <h2 class="sec-title title-anim">{data.general.tagLine2part1} <span>{data.general.tagLine2part2}.</span></h2>
+                </div>
+              </div>
+            </div>
+            <div class="row row-gap-4 rightSwipeWrap">
+              {data.body.benefits.map((benefit)=>(
+                        <div class="col-lg-4">
+                <div class="choose-box right-swipe">
+                  <div class="choose-content">
+                    <div class="choose-icon">
+                        <Icon name={benefit.icon} size={50} class="text-blue-500 mr-2" />
+                    </div>
+                    <h4 class="title">{benefit.benefitTitle}</h4>
+                    <p class="desc">{benefit.benefitDesc}</p>
+                  </div>
+                </div>
+              </div>
+
+              ))}
+      
+             
+            </div>
+          </div>
+        </section>
+        <!-- end: Choose Section -->
+
+        <!-- start: Client Section -->
+        <section class="tj-client-section client-section-gap wow fadeInUp" data-wow-delay=".4s">
+          <div class="container-fluid client-container">
+            <div class="row">
+              <div class="col-12">
+                <div class="client-content">
+                  <h5 class="sec-title">Join Over <span class="client-numbers">{data.general.numberOfCustomers}</span> Companies with
+                    <span class="client-text">{data.general.companyName}</span> Here
+                  </h5>
+                </div>
+                <div class="swiper client-slider client-slider-1">
+                  <div class="swiper-wrapper flex flex-row space-x-2">
+             {   businsesses.map((business) => (
+
+                  <div class="swiper-slide  client-item">
+                      <div class=" p-2 bg-white">
+                      <h5>{business.data.name}</h5>
+                      <h6>{business.data.location}</h6>
+                      </div>
+                    </div>
+                ))
+                }
+                    
+                    
+                    
+                
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Client Section -->
+
+        <!-- start: About Section -->
+        <section class="tj-about-section section-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 order-lg-1 order-2">
+                <div class="about-img-area wow fadeInLeft" data-wow-delay=".2s">
+                  <div class="about-img overflow-hidden">
+                    <Image data-speed="0.8" src={AboutUsImg} alt="">
+                  </div>
+                  <div class="box-area">
+                    <div class="experience-box wow fadeInUp" data-wow-delay=".3s">
+                      <span class="sub-title">Experiences</span>
+                      <div class="customers-number">13+</div>
+                      <h6 class="customers-text">Decades of Experience, Endless Innovation</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 order-lg-2 order-1">
+                <div class="about-content-area style-1 wow fadeInLeft" data-wow-delay=".2s">
+                  <div class="sec-heading">
+                    <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Get to Know
+                      Us</span>
+                    <h2 class="sec-title title-anim">{data.general.tagLine3Part1}
+                       <span>{data.general.tagLine3Part2}.</span>
+                    </h2>
+                  </div>
+                  <div class="wow fadeInUp" data-wow-delay=".5s">
+                    <a class="text-btn" href="about.html">
+                      <span class="btn-text"><span>Learn More</span></span>
+                      <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="about-bottom-area">
+                  <div class="client-review-cont wow fadeInUp" data-wow-delay=".7s">
+                    <div class="rating-area">
+                      <div class="star-ratings">
+                        <div class="fill-ratings" style="width: 100%">
+                          <span>★★★★★</span>
+                        </div>
+                        <div class="empty-ratings">
+                          <span>★★★★★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="desc">We believe in building lasting relationships with our clients through trust,
+                      innovation,
+                      and
+                      exceptional service.</p>
+                    <div class="client-info-area">
+                      <div class="client-info">
+                        <h6 class="title">Mohammed Akter Faruk</h6>
+                        <span class="designation">Founder</span>
+                      </div>
+                      <span class="quote-icon"><i class="tji-quote"></i></span>
+                    </div>
+                  </div>
+                  <div class="video-img  wow fadeInUp" data-wow-delay=".9s">
+                    <Image src={AboutUs2Img} alt="">
+                    <a class="video-btn video-popup" data-autoplay="true" data-vbtype="video" data-maxwidth="1200px"
+                      href="https://www.youtube.com/watch?v=MLpWrANjFbI&amp;ab_channel=eidelchteinadvogados">
+                      <span><i class="tji-play"></i></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: About Section -->
+
+        <!-- start: Service Section -->
+        <section class="tj-service-section overflow-hidden section-gap section-gap-x">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center">
+                  <span class="sub-title text-white wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Our
+                    Solutions</span>
+                  <h2 class="sec-title text-white title-anim">Solutions to Transform Your <span>Business.</span></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid p-0">
+            <div class="row">
+              <div class="col-12">
+                <div class="service-wrapper wow fadeInUp" data-wow-delay=".4s">
+                  <div class="swiper service-slider">
+                    <div class="swiper-wrapper">
+
+                      {services.map((service) => (
+
+                         <div class="swiper-slide">
+                        <div class="service-item style-1">
+                          <div class="service-img">
+                        {service.data.mainImage && (
+  <Image src={service.data.mainImage} alt="" />
+)}
+                          </div>
+                          <div class="service-icon">
+                            <i class="tji-service-2"></i>
+                          </div>
+                          <div class="service-content">
+                            <h4 class="title"><a href={"service/" + service.id}>{service.data.name}</a></h4>
+                            <p class="desc">{service.data.description}</p>
+                            <a class="text-btn" href={"service/" + service.id}>
+                              <span class="btn-text"><span>Learn More</span></span>
+                              <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                        
+                        
+                      ))}
+                 
+                     
+                     
+                    </div>
+                    <div class="swiper-pagination-area white-pagination"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-shape-1">
+            <Image src={Patter2} alt="">
+          </div>
+          <div class="bg-shape-2">
+           <Image src={Patter3} alt="">
+          </div>
+        </section>
+        <!-- end: Service Section -->
+
+        <!-- start: Project Section -->
+        <section class="tj-project-section section-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading-wrap">
+                  <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i>Proud Projects</span>
+                  <div class="heading-wrap-content">
+                    <div class="sec-heading">
+                      <h2 class="sec-title title-anim">Breaking Boundaries, Building <span>Dreams With Sardar Group</span></h2>
+                    </div>
+                    <p class="desc wow fadeInUp" data-wow-delay=".5s">We work closely with our clients to understand
+                      their
+                      unique needs and craft tailored
+                      solutions that address challenges.</p>
+                    <div class="btn-wrap wow fadeInUp" data-wow-delay=".6s">
+                      <a class="tj-primary-btn" href="portfolio.html">
+                        <span class="btn-text"><span>More Projects</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="project-area tj-arrange-container">
+
+                  {projects.map((project) => (
+                            <div class="project-item tj-arrange-item">
+                                           {project.data.heroImage && (
+  <Image src={project.data.heroImage} alt="" height={700}  style="filter:brightness(70%); " />
+)}
+                    <div class="project-content">
+                      <span class="categories"><a href={"project/" + project.id}>{project.data.name}</a></span>
+                      <div class="project-text">
+                        <h4 class="title"><a href={"project/" + project.id}>{project.data.longName}</a></h4>
+                        <a class="project-btn" href={"project/" + project.id}>
+                          <i class="tji-arrow-right-long"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                    
+                  ))}
+          
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Project Section -->
+
+        <!-- start: Countup Section -->
+        <div class="tj-countup-section flex flex-row items-center justify-center">
+          <div class="container">
+            <div class="row ">
+              <div class="col-12" >
+                <div class="countup-wrap" style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
+                  <div class="countup-item">
+                    <div class="inline-content">
+                      <span class="odometer countup-number" data-count="93"></span>
+                      <span class="count-plus">%</span>
+                    </div>
+                    <span class="count-text">Projects Completed.</span>
+                    <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
+                  </div>
+                  <!-- <div class="countup-item">
+                    <div class="inline-content">
+                      <span class="odometer countup-number" data-count="20"></span>
+                      <span class="count-plus">M</span>
+                    </div>
+                    <span class="count-text">Reach Worldwide</span>
+                    <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
+                  </div> -->
+                  <div class="countup-item">
+                    <div class="inline-content">
+                      <span class="odometer countup-number" data-count="8.5"></span>
+                      <span class="count-plus">X</span>
+                    </div>
+                    <span class="count-text">Faster Growth</span>
+                    <span class="count-separator" data-bg-image="/assets/images/shape/separator.svg"></span>
+                  </div>
+                  <!-- <div class="countup-item">
+                    <div class="inline-content">
+                      <span class="odometer countup-number" data-count="100"></span>
+                      <span class="count-plus">+</span>
+                    </div>
+                    <span class="count-text">Awards Archived</span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end: Countup Section -->
+
+        <!-- start: Testimonial Section -->
+   
+        <!-- end: Testimonial Section -->
+
+        <!-- start: Faq Section -->
+        <section class="tj-faq-section section-gap tj-arrange-container-2">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-lg-6">
+                <div class="faq-img-area tj-arrange-item-2">
+                  <div class="faq-img overflow-hidden">
+                    
+                    <Image src={Faq} alt="">
+                    <h2 class="title">Need Help? Start Here...</h2>
+                  </div>
+                  <div class="box-area ">
+                    <div class="call-box">
+                      <h4 class="title">Get Started Free Call? </h4>
+                      <span class="call-icon"><i class="tji-phone"></i></span>
+                      <a class="number" href="tel:18884521505"><span>1-888-452-1505</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="accordion tj-faq tj-arrange-item-2" id="faqOne">
+                  {data.general.faqs.map((faq, index) => (
+  <div class={`accordion-item ${index === 0 ? "active" : ""}`} >
+    <button
+      class={`faq-title ${index === 0 ? "" : "collapsed"}`}
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target={`#faq-${index + 1}`}
+      aria-expanded={index === 0 ? "true" : "false"}
+    >
+      {faq.question}
+    </button>
+    <div
+      id={`faq-${index + 1}`}
+      class={`collapse ${index === 0 ? "show" : ""}`}
+      data-bs-parent="#faqOne"
+    >
+      <div class="accordion-body faq-text">
+        <p>{faq.answer}</p>
+      </div>
+    </div>
+  </div>
+))}
+
+
+
+               
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Faq Section -->
+
+        <!-- start: Contact Section -->
+        <section class="tj-contact-section section-gap section-gap-x">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="global-map wow fadeInUp" data-wow-delay=".3s">
+                  <div class="global-map-img">
+                    <Image src={MapImg} alt="Image">
+              
+                 
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="contact-form style-2 wow fadeInUp" data-wow-delay=".4s">
+                  <div class="sec-heading">
+                    <span class="sub-title text-white"><i class="tji-box"></i>Get in Touch</span>
+                    <h2 class="sec-title title-anim">Drop Us a <span>Line.</span></h2>
+                  </div>
+                  <form id="contact-form-2">
+                    <div class="row wow fadeInUp" data-wow-delay=".5s">
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="text" name="Name" placeholder="Full Name *">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="email" name="Email" placeholder="Email Address *">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-input">
+                          <input type="tel" name="Phone" placeholder="Phone number *">
+                        </div>
+                      </div>
+                      <!-- <div class="col-sm-6">
+                        <div class="form-input">
+                          <div class="tj-nice-select-box">
+                            <div class="tj-select">
+                              <select name="cfSubject2">
+                                <option value="0">Chose a option</option>
+                                <option value="1">Business Strategy</option>
+                                <option value="2">Customer Experience</option>
+                                <option value="3">Sustainability and ESG</option>
+                                <option value="4">Training and Development</option>
+                                <option value="5">IT Support & Maintenance</option>
+                                <option value="6">Marketing Strategy</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="col-sm-12">
+                        <div class="form-input message-input">
+                          <textarea name="Message" id="message" placeholder="Type message *"></textarea>
+                        </div>
+                      </div>
+                      <div class="submit-btn">
+                        <button class="tj-primary-btn" type="submit">
+                          <span class="btn-text"><span>Send Message</span></span>
+                          <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-shape-1">
+            <Image src={Patter2} alt="">
+          </div>
+          <div class="bg-shape-2">
+                 <Image src={Patter3} alt="">
+          </div>
+        </section>
+        <!-- end: Contact Section -->
+
+        <!-- start: Blog Section -->
+
+        <!-- end: Blog Section -->
+
+        <!-- start: Cta Section -->
+        <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area">
+                  <div class="cta-content">
+                    <h2 class="title title-anim">Let’s Build Future Together with Sardar Group.</h2>
+                    <div class="cta-btn wow fadeInUp" data-wow-delay=".6s">
+                      <a class="tj-primary-btn btn-dark" href="/contact">
+                        <span class="btn-text"><span>Get Started Now</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="cta-img">
+                    <Image src={CTGABG} alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Cta Section -->
+      </main>
+
+      <!-- start: Footer Section -->
+ <Footer/>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+
+</BaseLayout>
